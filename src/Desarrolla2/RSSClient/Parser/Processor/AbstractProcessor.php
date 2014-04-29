@@ -47,11 +47,6 @@ abstract class AbstractProcessor implements ProcessorInterface
             $results = $domNode->getElementsByTagName($tagName);
             if ($results->length) {
                 foreach ($results as $result) {
-
-                    if ($tagName == 'enclosure') {
-                        $result->nodeValue = $domNode->getAttribute('url');
-                    }
-
                     if ($result->nodeValue) {
                         return $result->nodeValue;
                     }

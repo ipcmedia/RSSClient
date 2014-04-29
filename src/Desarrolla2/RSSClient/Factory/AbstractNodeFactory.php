@@ -85,6 +85,9 @@ abstract class AbstractNodeFactory implements FactoryInterface
             $list = $domNode->getElementsByTagName($tagName);
             for ($i = 0; $i < $list->length; $i++) {
                 $result = $list->item($i);
+                if ($tagName == 'enclosure') {
+                    $result->nodeValue = $result->getAttribute('url');
+                }
                 if (!$result->nodeValue) {
                     continue;
                 }
